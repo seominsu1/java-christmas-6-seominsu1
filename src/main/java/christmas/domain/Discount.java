@@ -1,6 +1,8 @@
 package christmas.domain;
 
 public class Discount {
+    private final int christmasDiscountRate = 100;
+    private final int christmasDiscountStart = 1000;
     private int date;
 
     public Discount(int date) {
@@ -12,7 +14,7 @@ public class Discount {
     }
 
     public int calculateChristmasDiscount() {
-        return date - 1;
+        return (date - 1)*christmasDiscountRate+christmasDiscountStart;
     }
 
     public String isWeekOrWeekend() {
