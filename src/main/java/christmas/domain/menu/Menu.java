@@ -32,6 +32,13 @@ public enum Menu {
         return findByFood.get().equals(Menu.MAIN);
     }
 
+    public static boolean isNotDrink(Food food) {
+        Optional<Menu> findByFood = Arrays.stream(Menu.values())
+                .filter(type -> type.findType(food))
+                .findAny();
+        return !findByFood.get().equals(Menu.DRINKS);
+    }
+
     public boolean findType(Food food) {
         return menus.stream()
                 .anyMatch(type -> type == food);
