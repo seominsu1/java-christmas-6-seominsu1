@@ -42,6 +42,8 @@ public class OutputView {
         System.out.println(benefitsMessage);
     }
 
+
+
     public void readDiscountAmount(int discountAmount) {
         String discountAmountMessage = stringBuilder.buildDiscountAmountMessage(discountAmount);
         System.out.println(discountAmountMessage);

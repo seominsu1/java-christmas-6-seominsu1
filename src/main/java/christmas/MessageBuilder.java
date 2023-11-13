@@ -73,17 +73,32 @@ public class MessageBuilder {
 
     public String buildBenefitsMessage(int[] benefits) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\n").append(BENEFITS_MESSAGE);
+        stringBuilder.append("\n").append(BENEFITS_MESSAGE).append("\n");
+        if (isEmptyBenefits(benefits)) {
+            stringBuilder.append(EMPTY);
+            return stringBuilder.toString();
+        }
+        buildBenefits(benefits, stringBuilder);
+        return stringBuilder.toString();
+    }
+
+    private void buildBenefits(int[] benefits, StringBuilder stringBuilder) {
         for (int index = 0; index < benefits.length; index++) {
             if (benefits[index] > 0) {
-                stringBuilder.append("\n")
-                        .append(BENEFITS[index])
+                stringBuilder.append(BENEFITS[index])
                         .append("-")
                         .append(formatter.format(benefits[index]))
                         .append(MONEY);
             }
         }
-        return stringBuilder.toString();
+    }
+
+    private boolean isEmptyBenefits(int[] benefits) {
+        int benefitAmount = 0;
+        for (int benefit : benefits) {
+            benefitAmount += benefit;
+        }
+        return benefitAmount == 0;
     }
     public String buildDiscountAmountMessage(int discountAmount) {
         StringBuilder stringBuilder = new StringBuilder();
