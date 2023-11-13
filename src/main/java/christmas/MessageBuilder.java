@@ -102,10 +102,11 @@ public class MessageBuilder {
     }
     public String buildDiscountAmountMessage(int discountAmount) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\n")
-                .append(DISCOUNT_AMOUNT_MESSAGE)
-                .append("\n")
-                .append("-")
+        stringBuilder.append("\n").append(DISCOUNT_AMOUNT_MESSAGE).append("\n");
+        if (discountAmount == 0) {
+            return stringBuilder.append(EMPTY).toString();
+        }
+        stringBuilder.append("-")
                 .append(formatter.format(discountAmount))
                 .append(MONEY);
         return stringBuilder.toString();
