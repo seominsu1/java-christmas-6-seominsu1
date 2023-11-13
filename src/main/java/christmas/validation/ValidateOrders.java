@@ -3,10 +3,8 @@ package christmas.validation;
 import christmas.domain.menu.Food;
 import christmas.domain.menu.Menu;
 import christmas.exception.InvalidOrderFormatException;
-import christmas.exception.InvalidVisitingDayFormatException;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ValidateOrders {
 
