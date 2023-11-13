@@ -12,13 +12,14 @@ public class OutputView {
     public OutputView() {
         this.stringBuilder = new MessageBuilder();
     }
+
+    public void readPromotionStartMessage() {
+        System.out.println(PROMOTION_START_MESSAGE);
+    }
+
     public void readStartMessage(int day) {
         String dateMessage = stringBuilder.buildDateMessage(day);
         System.out.println(dateMessage+OUTPUT_START_MESSAGE);
-    }
-
-    public void readOrderMenu() {
-        System.out.println(PROMOTION_START_MESSAGE);
     }
 
     public void readOrderMenu(Map<String,Integer> order) {
