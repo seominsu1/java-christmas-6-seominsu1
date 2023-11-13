@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import christmas.validation.ValidateOrders;
 import christmas.validation.ValidateVisitingDay;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class InputView {
@@ -26,7 +27,7 @@ public class InputView {
         return Integer.parseInt(input);
     }
 
-    public String[] getOrders() {
+    public Map<String,Integer> getOrders() {
         System.out.println(INPUT_ORDER_MENU_MESSAGE);
         ValidateOrders validateOrders = new ValidateOrders();
         String input;
@@ -39,7 +40,14 @@ public class InputView {
                 System.out.println(e.getMessage());
             }
         }
-        return input.split(",");
+        return mapOrders(input.split(","));
     }
 
+    private Map<String, Integer> mapOrders(String[] orders) {
+        Map<String, Integer> mapOrders = new LinkedHashMap<>();
+        for (String order : orders) {
+            mapOrders.put(order.split("-")[0],Integer.parseInt(order.split("-")[1]));
+        }
+        return mapOrders;
+    }
 }
