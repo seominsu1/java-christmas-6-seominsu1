@@ -73,9 +73,9 @@ public class MessageBuilder {
 
     public String buildBenefitsMessage(int[] benefits) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("\n").append(BENEFITS_MESSAGE).append("\n");
+        stringBuilder.append("\n").append(BENEFITS_MESSAGE);
         if (isEmptyBenefits(benefits)) {
-            stringBuilder.append(EMPTY);
+            stringBuilder.append("\n").append(EMPTY);
             return stringBuilder.toString();
         }
         buildBenefits(benefits, stringBuilder);
@@ -85,7 +85,8 @@ public class MessageBuilder {
     private void buildBenefits(int[] benefits, StringBuilder stringBuilder) {
         for (int index = 0; index < benefits.length; index++) {
             if (benefits[index] > 0) {
-                stringBuilder.append(BENEFITS[index])
+                stringBuilder.append("\n")
+                        .append(BENEFITS[index])
                         .append("-")
                         .append(formatter.format(benefits[index]))
                         .append(MONEY);
