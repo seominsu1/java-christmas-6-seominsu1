@@ -26,6 +26,20 @@ public class InputView {
         return Integer.parseInt(input);
     }
 
-
+    public String[] getOrders() {
+        System.out.println(INPUT_ORDER_MENU_MESSAGE);
+        ValidateOrders validateOrders = new ValidateOrders();
+        String input;
+        while (true) {
+            input = Console.readLine();
+            try {
+                validateOrders.validate(input);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return input.split(",");
+    }
 
 }
