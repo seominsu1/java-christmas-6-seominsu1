@@ -1,5 +1,8 @@
 package christmas.domain.menu;
 
+import java.util.Arrays;
+import java.util.Optional;
+
 public enum Food {
 
     ONIONSOUP("양송이스프",6000),
@@ -13,7 +16,8 @@ public enum Food {
     ICECREAM("아이스크림",5000),
     DIETCOKE("제로콜라",3000),
     REDWINE("레드와인",60000),
-    CHAMPAGNE("샴페인",25000);
+    CHAMPAGNE("샴페인",25000),
+    EMPTY("없음",0);
 
     private String name;
     private int price;
@@ -21,5 +25,24 @@ public enum Food {
     Food(String name, int price) {
         this.name = name;
         this.price = price;
+    }
+
+    public static int getPriceByName(String menu) {
+        Optional<Food> findByName = getMenusByName(menu);
+        return findByName.map(Food::getPrice).orElseGet(EMPTY::getPrice);
+    }
+
+    public static Optional<Food> getMenusByName(String menu) {
+        return Arrays.stream(Food.values())
+                .filter(food -> food.getName().equals(menu))
+                .findAny();
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
     }
 }
