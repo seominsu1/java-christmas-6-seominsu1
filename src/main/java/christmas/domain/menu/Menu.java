@@ -1,6 +1,8 @@
 package christmas.domain.menu;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public enum Menu {
     APPETIZER("에피타이저", List.of(Food.ONIONSOUP, Food.TAPAS, Food.CAESARSALAD)),
@@ -14,5 +16,17 @@ public enum Menu {
     Menu(String type, List<Food> menus) {
         this.type = type;
         this.menus = menus;
+    }
+
+    public static boolean isDessert(Food food) {
+        Optional<Menu> findByFood = Arrays.stream(Menu.values())
+                .filter(type -> type.findType(food))
+                .findAny();
+        return findByFood.get().equals(Menu.DESSERT);
+    }
+
+    public boolean findType(Food food) {
+        return menus.stream()
+                .anyMatch(type -> type == food);
     }
 }
