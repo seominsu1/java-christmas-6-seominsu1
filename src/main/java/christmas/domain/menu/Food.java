@@ -6,7 +6,7 @@ import java.util.Optional;
 public enum Food {
 
     ONIONSOUP("양송이스프",6000),
-    TAPAS("타파스",6000),
+    TAPAS("타파스",5500),
     CAESARSALAD("시저샐러드",8000),
     TBONESTEAK("티본스테이크",55000),
     BARBEQUERIB("바비큐립",54000),
