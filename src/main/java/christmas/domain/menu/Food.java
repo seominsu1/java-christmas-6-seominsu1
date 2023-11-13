@@ -9,7 +9,7 @@ public enum Food {
     TAPAS("타파스",6000),
     CAESARSALAD("시저샐러드",8000),
     TBONESTEAK("티본스테이크",55000),
-    BARBEQUERIB("바베큐립",54000),
+    BARBEQUERIB("바비큐립",54000),
     SEAFOODPASTA("해산물파스타",35000),
     CHRISTMASPASTA("크리스마스파스타",25000),
     CHOCOLATECAKE("초코케이크",15000),
