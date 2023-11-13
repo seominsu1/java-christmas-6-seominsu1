@@ -5,6 +5,7 @@ import christmas.MessageBuilder;
 import java.util.Map;
 
 public class OutputView {
+    private static final String PROMOTION_START_MESSAGE = "안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.";
     private static final String OUTPUT_START_MESSAGE = "에 우테코 식당에서 받을 이벤트 혜택 미리 보기!";
     private MessageBuilder stringBuilder;
 
@@ -14,6 +15,10 @@ public class OutputView {
     public void readStartMessage(int day) {
         String dateMessage = stringBuilder.buildDateMessage(day);
         System.out.println(dateMessage+OUTPUT_START_MESSAGE);
+    }
+
+    public void readOrderMenu() {
+        System.out.println(PROMOTION_START_MESSAGE);
     }
 
     public void readOrderMenu(Map<String,Integer> order) {
