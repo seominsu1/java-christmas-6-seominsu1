@@ -5,10 +5,8 @@ import christmas.domain.menu.Menu;
 import christmas.exception.InvalidOrderFormatException;
 import christmas.exception.InvalidVisitingDayFormatException;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ValidateOrders {
 
@@ -23,10 +21,10 @@ public class ValidateOrders {
     }
 
     private void validateOrderFormat(String[] splitOrder) {
-        Optional<String> orders = Arrays.stream(splitOrder)
+        List<String> orders = Arrays.stream(splitOrder)
                 .filter(order -> order.contains("-"))
-                .findAny();
-        if (orders.isEmpty() || orders.get().length() != splitOrder.length) {
+                .toList();
+        if (orders.isEmpty() || orders.size() != splitOrder.length) {
             throw new InvalidOrderFormatException();
         }
     }
