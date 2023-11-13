@@ -14,6 +14,7 @@ public class Calculator {
     private int specialDiscount;
     private int christmasDdayDiscount;
     private int discountAmount;
+    private int[] benefits;
 
     public Calculator(Map<String, Integer> order) {
         this.order = order;
@@ -93,5 +94,8 @@ public class Calculator {
 
     public int getSpecialDiscount() {
         return specialDiscount;
+    }
+    public int[] getBenefits() {
+        return benefits = new int[]{christmasDdayDiscount,weekDayDiscount,weekendDiscount,specialDiscount,presentationDiscount};
     }
 }
