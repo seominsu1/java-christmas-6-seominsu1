@@ -30,13 +30,14 @@ public class ValidateOrders {
     }
 
     private void validateExistMenu(String[] splitOrder) {
-        Arrays.stream(splitOrder)
-                .filter(menu -> {
-                    if (Food.getMenusByName(menu.split("-")[0]).isPresent()) {
-                        return true;
-                    }
-                    throw new InvalidOrderFormatException();
-                });
+        long count = Arrays.stream(splitOrder)
+                .filter(menu ->
+                        Food.getMenusByName(menu.split("-")[0]).isPresent()
+                )
+                .count();
+        if (count != splitOrder.length) {
+            throw new InvalidOrderFormatException();
+        }
     }
 
     private void validateDuplicateMenu(String[] splitOrder) {
