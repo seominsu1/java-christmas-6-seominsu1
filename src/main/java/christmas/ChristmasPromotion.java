@@ -67,7 +67,7 @@ public class ChristmasPromotion {
         }
     }
     private boolean isOverEventApplyMoney() {
-        return calculator.getAmount() < 10000;
+        return calculator.getAmount() >= 10000;
     }
     public int[] getBenefits() {
         benefits = calculator.getBenefits();
