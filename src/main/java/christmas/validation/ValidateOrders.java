@@ -57,6 +57,9 @@ public class ValidateOrders {
     private void validateEmptyAmount(String[] splitOrder) {
         Deque<String> amounts = new ArrayDeque<>();
         for (String amount : splitOrder) {
+            if (amount.split("-").length < 2) {
+                throw new InvalidOrderFormatException();
+            }
             String number = amount.split("-")[1];
             amounts.add(number);
         }
