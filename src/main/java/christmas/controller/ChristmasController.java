@@ -1,7 +1,6 @@
 package christmas.controller;
 
 import christmas.ChristmasPromotion;
-import christmas.domain.Badge;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -21,20 +20,64 @@ public class ChristmasController {
 
     public void start() {
         outputView.readPromotionStartMessage();
-        int date = inputView.getVisitingDay();
-        Map<String, Integer> orders = inputView.getOrders();
-        outputView.readStartMessage(date);
-        outputView.readOrderMenu(orders);
-        christmasPromotion.setDiscount(date);
-        christmasPromotion.setOrder(orders);
-        int totalAmount = christmasPromotion.getTotalAmount();
-        outputView.readTotalAmount(totalAmount);
-        outputView.readPresentationEvent(christmasPromotion.isPresentationDiscount());
+        int date = getVisitingDay();
+        Map<String, Integer> orders = getOrders();
+        readOrderMenu(date, orders);
+        setEventConditions(date, orders);
+        readTotalAmount();
+        readPresentationEvent();
+        readBenefits();
+        int discountAmount = getDiscountAmount();
+        readDiscountAmount(discountAmount);
+        getReadPayAmount();
+        readBadge(discountAmount);
+    }
+
+    private void readBadge(int discountAmount) {
+        outputView.readBadge(christmasPromotion.getBadge(discountAmount));
+    }
+
+    private void getReadPayAmount() {
+        outputView.readPayAmount(christmasPromotion.getPayAmount());
+    }
+
+    private void readDiscountAmount(int discountAmount) {
+        outputView.readDiscountAmount(discountAmount);
+    }
+
+    private int getDiscountAmount() {
+        return christmasPromotion.getDiscountAmount();
+    }
+
+    private void readBenefits() {
         christmasPromotion.setBenefits();
         outputView.readBenefits(christmasPromotion.getBenefits());
-        int discountAmount = christmasPromotion.getDiscountAmount();
-        outputView.readDiscountAmount(discountAmount);
-        outputView.readPayAmount(christmasPromotion.getPayAmount());
-        outputView.readBadge(christmasPromotion.getBadge(discountAmount));
+    }
+
+    private void readPresentationEvent() {
+        outputView.readPresentationEvent(christmasPromotion.isPresentationDiscount());
+    }
+
+    private void readTotalAmount() {
+        int totalAmount = christmasPromotion.getTotalAmount();
+        outputView.readTotalAmount(totalAmount);
+    }
+
+    private void setEventConditions(int date, Map<String, Integer> orders) {
+        christmasPromotion.setDiscount(date);
+        christmasPromotion.setOrder(orders);
+    }
+
+    private void readOrderMenu(int date, Map<String, Integer> orders) {
+        outputView.readStartMessage(date);
+        outputView.readOrderMenu(orders);
+    }
+
+    private Map<String, Integer> getOrders() {
+        return inputView.getOrders();
+    }
+
+    private int getVisitingDay() {
+        return inputView.getVisitingDay();
     }
 }
