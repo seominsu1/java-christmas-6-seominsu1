@@ -95,7 +95,8 @@ public class Calculator {
     public int getSpecialDiscount() {
         return specialDiscount;
     }
+
     public int[] getBenefits() {
-        return benefits = new int[]{christmasDdayDiscount,weekDayDiscount,weekendDiscount,specialDiscount,presentationDiscount};
+        return benefits = new int[]{christmasDdayDiscount, weekDayDiscount, weekendDiscount, specialDiscount, presentationDiscount};
     }
 }

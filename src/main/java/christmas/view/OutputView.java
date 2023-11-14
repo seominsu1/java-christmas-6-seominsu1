@@ -19,10 +19,10 @@ public class OutputView {
 
     public void readStartMessage(int day) {
         String dateMessage = stringBuilder.buildDateMessage(day);
-        System.out.println(dateMessage+OUTPUT_START_MESSAGE);
+        System.out.println(dateMessage + OUTPUT_START_MESSAGE);
     }
 
-    public void readOrderMenu(Map<String,Integer> order) {
+    public void readOrderMenu(Map<String, Integer> order) {
         String orderMenuMessage = stringBuilder.buildOrderMenuMessage(order);
         System.out.println(orderMenuMessage);
     }
@@ -41,7 +41,6 @@ public class OutputView {
         String benefitsMessage = stringBuilder.buildBenefitsMessage(benefits);
         System.out.println(benefitsMessage);
     }
-
 
 
     public void readDiscountAmount(int discountAmount) {

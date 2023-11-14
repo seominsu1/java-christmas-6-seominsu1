@@ -14,13 +14,14 @@ public class Discount {
     }
 
     public int calculateChristmasDiscount() {
-        return (date - 1)*christmasDiscountRate+christmasDiscountStart;
+        return (date - 1) * christmasDiscountRate + christmasDiscountStart;
     }
 
     public String isWeekOrWeekend() {
         if (December.findDiscountType(date).isPresent()) {
             return December.findDiscountType(date).get().getType();
-        }return null;
+        }
+        return null;
     }
 
     public Boolean isSpecialDiscount() {

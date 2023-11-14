@@ -27,7 +27,7 @@ public class InputView {
         return Integer.parseInt(input);
     }
 
-    public Map<String,Integer> getOrders() {
+    public Map<String, Integer> getOrders() {
         System.out.println(INPUT_ORDER_MENU_MESSAGE);
         ValidateOrders validateOrders = new ValidateOrders();
         String input;
@@ -46,7 +46,7 @@ public class InputView {
     private Map<String, Integer> mapOrders(String[] orders) {
         Map<String, Integer> mapOrders = new LinkedHashMap<>();
         for (String order : orders) {
-            mapOrders.put(order.split("-")[0],Integer.parseInt(order.split("-")[1]));
+            mapOrders.put(order.split("-")[0], Integer.parseInt(order.split("-")[1]));
         }
         return mapOrders;
     }

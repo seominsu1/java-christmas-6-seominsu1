@@ -66,9 +66,11 @@ public class ChristmasPromotion {
             calculator.calculateChristmasDdayDiscount(discount.calculateChristmasDiscount());
         }
     }
+
     private boolean isOverEventApplyMoney() {
         return calculator.getAmount() >= 10000;
     }
+
     public int[] getBenefits() {
         benefits = calculator.getBenefits();
         return benefits;
@@ -80,7 +82,7 @@ public class ChristmasPromotion {
 
     public int getPayAmount() {
         int payAmount = calculator.getAmount();
-        for (int type = 0; type < benefits.length -1; type++) {
+        for (int type = 0; type < benefits.length - 1; type++) {
             payAmount -= benefits[type];
         }
         return payAmount;

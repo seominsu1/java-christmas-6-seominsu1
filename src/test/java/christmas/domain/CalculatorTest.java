@@ -15,9 +15,9 @@ class CalculatorTest {
     @Test
     void calculateAmount() {
         Map<String, Integer> menus = new HashMap<>();
-        menus.put("제로콜라",3);
-        menus.put("양송이스프",5);
-        menus.put("티본스테이크",1);
+        menus.put("제로콜라", 3);
+        menus.put("양송이스프", 5);
+        menus.put("티본스테이크", 1);
         int expected = 94000;
 
         Calculator calculator = new Calculator(menus);
@@ -30,11 +30,11 @@ class CalculatorTest {
     @Test
     void calculateWeekDayDiscountAmount() {
         Map<String, Integer> menus = new HashMap<>();
-        menus.put("제로콜라",3);
-        menus.put("초코케이크",2);
-        menus.put("아이스크림",3);
-        menus.put("티본스테이크",1);
-        int expected = 2023*5;
+        menus.put("제로콜라", 3);
+        menus.put("초코케이크", 2);
+        menus.put("아이스크림", 3);
+        menus.put("티본스테이크", 1);
+        int expected = 2023 * 5;
 
         Calculator calculator = new Calculator(menus);
         calculator.calculateWeekDayDiscount();
@@ -46,11 +46,11 @@ class CalculatorTest {
     @Test
     void calculateWeekendDiscountAmount() {
         Map<String, Integer> menus = new HashMap<>();
-        menus.put("제로콜라",3);
-        menus.put("초코케이크",2);
-        menus.put("바베큐립",3);
-        menus.put("티본스테이크",1);
-        int expected = 2023*4;
+        menus.put("제로콜라", 3);
+        menus.put("초코케이크", 2);
+        menus.put("바베큐립", 3);
+        menus.put("티본스테이크", 1);
+        int expected = 2023 * 4;
 
         Calculator calculator = new Calculator(menus);
         calculator.calculateWeekendDiscount();
@@ -62,9 +62,9 @@ class CalculatorTest {
     @Test
     void calculateChristmasDdayDiscountAmount() {
         Map<String, Integer> menus = new HashMap<>();
-        menus.put("초코케이크",2);
-        menus.put("바베큐립",3);
-        menus.put("티본스테이크",1);
+        menus.put("초코케이크", 2);
+        menus.put("바베큐립", 3);
+        menus.put("티본스테이크", 1);
         int amount = 3400;
 
         Calculator calculator = new Calculator(menus);
@@ -72,13 +72,14 @@ class CalculatorTest {
 
         assertThat(calculator.getChristmasDdayDiscount()).isEqualTo(amount);
     }
+
     @DisplayName("특별 할인금액 계산 기능")
     @Test
     void calculateSpecialDiscountAmount() {
         Map<String, Integer> menus = new HashMap<>();
-        menus.put("초코케이크",2);
-        menus.put("바베큐립",3);
-        menus.put("티본스테이크",1);
+        menus.put("초코케이크", 2);
+        menus.put("바베큐립", 3);
+        menus.put("티본스테이크", 1);
         int expected = 1000;
 
         Calculator calculator = new Calculator(menus);
@@ -91,9 +92,9 @@ class CalculatorTest {
     @Test
     void calculatePresentationDiscountAmount() {
         Map<String, Integer> menus = new HashMap<>();
-        menus.put("초코케이크",2);
-        menus.put("바베큐립",3);
-        menus.put("티본스테이크",5);
+        menus.put("초코케이크", 2);
+        menus.put("바베큐립", 3);
+        menus.put("티본스테이크", 5);
         int expected = 25000;
 
         Calculator calculator = new Calculator(menus);
@@ -107,10 +108,10 @@ class CalculatorTest {
     @Test
     void getDiscountAmount() {
         Map<String, Integer> menus = new HashMap<>();
-        menus.put("초코케이크",2);
-        menus.put("바베큐립",3);
-        menus.put("티본스테이크",5);
-        int expected = 2023*5 + 2023 *3 + 1000 + 25000 + 3400;
+        menus.put("초코케이크", 2);
+        menus.put("바베큐립", 3);
+        menus.put("티본스테이크", 5);
+        int expected = 2023 * 5 + 2023 * 3 + 1000 + 25000 + 3400;
 
         Calculator calculator = new Calculator(menus);
         calculator.calculateAmount();

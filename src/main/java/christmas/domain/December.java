@@ -6,11 +6,12 @@ import java.util.Optional;
 
 public enum December {
 
-    WEEKDAY("주중",List.of(3,4,5,6,7,10,11,12,13,14,17,18,19,20,21,24,25,26,27,28,31)),
-    WEEKEND("주말",List.of(1,2,8,9,15,16,22,23,29,30));
+    WEEKDAY("주중", List.of(3, 4, 5, 6, 7, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 24, 25, 26, 27, 28, 31)),
+    WEEKEND("주말", List.of(1, 2, 8, 9, 15, 16, 22, 23, 29, 30));
 
     private String type;
     private List<Integer> days;
+
     December(String type, List<Integer> days) {
         this.type = type;
         this.days = days;

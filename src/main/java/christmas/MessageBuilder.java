@@ -101,6 +101,7 @@ public class MessageBuilder {
         }
         return benefitAmount == 0;
     }
+
     public String buildDiscountAmountMessage(int discountAmount) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("\n").append(DISCOUNT_AMOUNT_MESSAGE).append("\n");
@@ -122,6 +123,7 @@ public class MessageBuilder {
                 .append(MONEY);
         return stringBuilder.toString();
     }
+
     public String buildBadgeMessage(String badge) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("\n")

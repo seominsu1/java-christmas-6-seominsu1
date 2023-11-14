@@ -6,11 +6,12 @@ import java.util.Optional;
 
 public enum StarDay {
 
-    Star("특별",List.of(3,10,17,24,25,31)),
-    EMPTY("없음",List.of());
+    Star("특별", List.of(3, 10, 17, 24, 25, 31)),
+    EMPTY("없음", List.of());
 
     private String type;
     private List<Integer> days;
+
     StarDay(String type, List<Integer> days) {
         this.type = type;
         this.days = days;
