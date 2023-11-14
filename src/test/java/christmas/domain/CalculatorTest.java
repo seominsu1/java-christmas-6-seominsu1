@@ -16,7 +16,7 @@ class CalculatorTest {
     void calculateAmount() {
         Map<String, Integer> menus = new HashMap<>();
         menus.put("제로콜라", 3);
-        menus.put("양송이스프", 5);
+        menus.put("양송이수프", 5);
         menus.put("티본스테이크", 1);
         int expected = 94000;
 
@@ -48,7 +48,7 @@ class CalculatorTest {
         Map<String, Integer> menus = new HashMap<>();
         menus.put("제로콜라", 3);
         menus.put("초코케이크", 2);
-        menus.put("바베큐립", 3);
+        menus.put("바비큐립", 3);
         menus.put("티본스테이크", 1);
         int expected = 2023 * 4;
 
@@ -109,7 +109,7 @@ class CalculatorTest {
     void getDiscountAmount() {
         Map<String, Integer> menus = new HashMap<>();
         menus.put("초코케이크", 2);
-        menus.put("바베큐립", 3);
+        menus.put("바비큐립", 3);
         menus.put("티본스테이크", 5);
         int expected = 2023 * 5 + 2023 * 3 + 1000 + 25000 + 3400;
 
